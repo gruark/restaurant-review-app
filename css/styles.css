@@ -54,7 +54,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 }
 
 #footer {
-  background-color: #444;
+  background-color: #1C1C1C;
   color: #aaa;
   font-size: 8pt;
   letter-spacing: 1px;
@@ -66,9 +66,23 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #header {
   width: 100%;
   height: 80px;
-  background-color: #252831;
+  background-color: #1C1C1C;
   text-align:center;
+  padding: 10px 0 0 10px;
 }
+
+header h1 {
+  margin: auto;
+}
+
+header h1 a {
+  color: #fff;
+  font-size: 28pt;
+  font-weight: 200;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+}
+
 
 /* ====================== Navigation ====================== */
 
@@ -79,17 +93,6 @@ nav {
   text-align:center;
 }
 
-nav h1 {
-  margin: auto;
-}
-
-nav h1 a {
-  color: #fff;
-  font-size: 28pt;
-  font-weight: 200;
-  letter-spacing: 10px;
-  text-transform: uppercase;
-}
 
 #breadcrumb {
     padding: 10px 40px 16px;
@@ -164,15 +167,19 @@ nav h1 a {
 
 /* ====================== Restaurant Listing ====================== */
 
+#restaurant-list-container {
+   text-align: center;
+	 margin: 0 auto;
+	 padding: 7% 7%;
+}
 #restaurants-list {
   background-color: #f3f3f3;
   list-style: outside none none;
-  margin: 0;
+  margin: 0 auto;
   padding: 30px 15px 60px;
   text-align: center;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
   align-items: flex-start;
 }
 
@@ -194,7 +201,7 @@ nav h1 a {
 }
 
 #restaurants-list li h1 {
-  color: #f18200;
+  color: #940000;
   font-family: Arial,sans-serif;
   font-size: 14pt;
   font-weight: 200;
@@ -311,7 +318,7 @@ nav h1 a {
 
 #reviews-list li {
   background-color: #fff;
-    border: 2px solid #f3f3f3;
+  border: 2px solid #f3f3f3;
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
@@ -335,18 +342,23 @@ nav h1 a {
 
 .inside #map-container {
      width: 100%;
-	 display: flex;
+  	 display: flex;
   }
-  
+
   li. a{
      font-size: 1em;
+
   }
+
+.filter-options {
+		height: 120px;
+	}
 }
 
 @media only screen and (min-width: 480px) and max-width: 767px) {
 
 .inside #map-container {
-     width: 100%;
+   width: 100%;
 	 display: flex;
   }
 }
@@ -356,4 +368,3 @@ nav h1 a {
 
 @media only screen and (min-width: 992px) and max-width: 1999px) {
 }
-
