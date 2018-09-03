@@ -166,15 +166,15 @@ class DBHelper {
       marker.addTo(newMap);
     return marker;
   }
-  /* static mapMarkerForRestaurant(restaurant, map) {
-    const marker = new google.maps.Marker({
-      position: restaurant.latlng,
-      title: restaurant.name,
-      url: DBHelper.urlForRestaurant(restaurant),
-      map: map,
-      animation: google.maps.Animation.DROP}
-    );
-    return marker;
-  } */
 
+}
+
+//See if Service Worker is supported
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/js/sw.js')
+      .then(reg => console.log('Service Worker: Registered'))
+      .catch(err => console.log('Service Worker: Error: ${err}'));
+  });
 }
