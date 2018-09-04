@@ -23,19 +23,17 @@
       <li><a href="/">Home</a></li>
     </ul>
     <!-- End breadcrumb -->
-    <!-- End nav  -->
    </nav>
-
-  <!-- End header -->
+    <!-- End nav  -->
 
   <!-- Beginning main -->
   <main id="maincontent" role="main">
     <!-- Beginning restaurant -->
     <section id="restaurant-container">
-                <img id="restaurant-img">
+        <img id="restaurant-img">
       <div id="restaurant-content">
-        <h1 id="restaurant-name"></h1>
-        <p id="restaurant-cuisine"></p>
+          <h1 id="restaurant-name"></h1>
+          <p id="restaurant-cuisine"></p>
         <section id="hours">
           <h2 id="hours-title"> Hours</h2>
           <table id="restaurant-hours"></table>
@@ -46,7 +44,8 @@
              <p id="restaurant-address"></p>
       </div>
           <section id="map-container">
-            <div id="map"></div>
+            <div id="map" role="application" aria-hidden="true" tabindex = "-1" aria-describedby="map-locations"></div>
+            <div hidden id="map-locations">A map that shows the restaurant locations.</div>
           </section>
       </section>
     <!-- end restaurant -->
@@ -69,9 +68,6 @@
   <script type="text/javascript" src="js/dbhelper.js"></script>
   <!-- Main javascript file -->
   <script type="text/javascript" src="js/restaurant_info.js"></script>
-  <!-- Google Maps -->
- <!--  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_tKbW6A5pQ-eupxI56myUnHLqYCzOjKo&libraries=places&callback=initMap"></script> -->
-  <!-- End scripts -->
 
 </body>
 

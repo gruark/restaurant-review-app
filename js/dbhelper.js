@@ -169,7 +169,7 @@ class DBHelper {
 
 }
 
-//See if Service Worker is supported
+  //See if Service Worker is supported
 if('serviceWorker' in navigator){
   window.addEventListener('load', () => {
     navigator.serviceWorker
