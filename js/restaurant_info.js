@@ -6,6 +6,7 @@ var newMap;
  */
 document.addEventListener('DOMContentLoaded', (event) => {
   initMap();
+  document.querySelector('#map').tabIndex = '-1';
 });
 
 /**

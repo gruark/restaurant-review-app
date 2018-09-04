@@ -44,6 +44,10 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 	display: block;
 }
 
+:focus {
+   outline: 3px solid red;
+}
+
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
@@ -99,6 +103,8 @@ header h1 a {
    background-color: #001F3F;
    width:100%;
 }
+
+
 /* ====================== Navigation ====================== */
 
 nav {
