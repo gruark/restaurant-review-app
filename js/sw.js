@@ -1,10 +1,37 @@
-const cacheName = 'v1';
+//Service worker modified from Traversy Media  - https://www.youtube.com/watch?v=ksXwaWHCW6k
+
+const cacheName= 'v1';
+
+const cacheFiles = [
+	'/',
+	'/index.html',
+	'/restaurant.html',
+	'/css/styles.css',
+	'/js/dbhelper.js',
+	'/js/main.js',
+	'/js/restaurant_info.js',
+	'/data/restaurants.json',
+	'/img/casa_enrique.jpg',
+	'/img/emily.jpg',
+	'/img/hometownBBQ.jpg',
+	'/img/KangHoDong.jpg',
+	'/img/katz.jpg',
+	'/img/mu_ramen.jpg',
+	'/img/mission_chinese.jpg',
+	'/img/robertas.jpg',
+	'/img/superiority_burger.jpg',
+	'/img/the_dutch.jpg'						
+];
 
 
-self.addEventListener('install', event => {
-	console.log('Service Worker Installed');
+self.addEventListener('install', e => {
+	e.waitUntil(
+		caches.open('v1').then(function(cache) {
+			return cache.addAll(cacheFiles);
+		})
+	);
 });
-
+		
 //Call Activate Event
 self.addEventListener('activate', event => {
 	console.log('Service Worker activated');
@@ -39,3 +66,4 @@ self.addEventListener('fetch', event => {
 				   }).catch(err => caches.match(event.request).then(res => res))
 		);
 });
+

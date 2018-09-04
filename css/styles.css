@@ -482,6 +482,10 @@ header h1 a {
   padding-left: 30px;
 }
 
+#restaurant-address {
+	padding: 0;
+}
+
 #hours {
 	padding-bottom:10px;
 }
