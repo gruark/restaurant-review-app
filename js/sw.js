@@ -10,6 +10,7 @@ const cacheFiles = [
 	'/js/dbhelper.js',
 	'/js/main.js',
 	'/js/restaurant_info.js',
+	'/js/sw.js',
 	'/data/restaurants.json',
 	'/img/casa_enrique.jpg',
 	'/img/emily.jpg',
@@ -25,18 +26,22 @@ const cacheFiles = [
 
 
 self.addEventListener('install', e => {
+	console.log('Service Worker Installed');
 	e.waitUntil(
-		caches.open('v1').then(function(cache) {
-			return cache.addAll(cacheFiles);
-		})
+		caches
+		  .open(cacheName)
+		  .then(cache => {
+			 cache.addAll(cacheFiles);
+		   })
+		  .then(() => self.skipWaiting())
 	);
 });
 		
 //Call Activate Event
-self.addEventListener('activate', event => {
+self.addEventListener('activate', e => {
 	console.log('Service Worker activated');
 	//Remove unwanted caches
-    event.waitUntil(
+    e.waitUntil(
 		 caches.keys().then(cacheNames => {
 			return Promise.all(
 			   cacheNames.map(cache => {
@@ -45,25 +50,14 @@ self.addEventListener('activate', event => {
 					   return caches.delete(cache);
 				   }
 		      })
-				);
-		  })
+		   )
+	    })
      );
 });
 
 //Call Fetch Event
-self.addEventListener('fetch', event => {
+self.addEventListener('fetch', e => {
 		console.log('Service Worker: fetching');
-		event.respondWith(
-		    fetch(event.request)
-			 .then(res => {
-				 const resClone = res.clone();
-				 caches
-				 .open(cacheName)
-				 .then(cache => {
-					 cache.put(event.request, resClone);
-					   });
-				   return res;
-				   }).catch(err => caches.match(event.request).then(res => res))
-		);
+		e.respondWith(
+		    fetch(e.request).catch(() => caches.match(e.request))
 });
-
